@@ -21,9 +21,9 @@ export function useMouse() {
   return pos;
 }
 
-export function useReveal<T extends HTMLElement>() {
+export function useReveal() {
   const [visible, setVisible] = useState(false);
-  const [el, setEl] = useState<T | null>(null);
+  const [el, setEl] = useState<Element | null>(null);
   useEffect(() => {
     if (!el) return;
     const obs = new IntersectionObserver(
@@ -33,5 +33,5 @@ export function useReveal<T extends HTMLElement>() {
     obs.observe(el);
     return () => obs.disconnect();
   }, [el]);
-  return { ref: setEl, visible };
+  return { ref: setEl as (n: Element | null) => void, visible };
 }
