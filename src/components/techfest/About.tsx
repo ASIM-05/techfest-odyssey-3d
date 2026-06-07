@@ -9,7 +9,7 @@ const STATS = [
 ];
 
 export function About() {
-  const { ref, visible } = useReveal<HTMLDivElement>();
+  const { ref, visible } = useReveal();
   const y = useScrollY();
 
   return (
