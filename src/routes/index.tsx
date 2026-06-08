@@ -6,6 +6,7 @@ import { Speakers } from "@/components/techfest/Speakers";
 import { Sponsors, Register, Footer } from "@/components/techfest/Outro";
 import { Nav } from "@/components/techfest/Nav";
 import { NeonCursor } from "@/components/techfest/NeonCursor";
+import { Scene3D } from "@/components/techfest/Scene3D";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,9 +32,10 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="scanlines noise relative">
+      <Scene3D />
       <Nav />
       <NeonCursor />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Events />
